@@ -1,4 +1,4 @@
-require_relative "../lib/pessoa"
+require_relative "../lib/pessoa_view"
 
 class pessoaView
 
