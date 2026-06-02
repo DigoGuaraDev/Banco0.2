@@ -1,6 +1,8 @@
-require_relative "../lib/pessoa_view"
+require_relative "../lib/pessoa"
+require_relative "../lib/endereco"
 
-class pessoaView
+
+class PessoaView
 
 def initialize(data)  
   @data = data
@@ -13,11 +15,36 @@ def menu_pessoa
     escolha = gets.chomp.to_i
 case escolha
 when 1
-  puts @data.listar
+  p " ID |  CPF_CNPJ | NOME CLIENTE | TIPO | CIDADE/UF"
+  @data.listar.each_with_ideex do |p, index|
+    p " #{index + 1} | #{p.cpf_cnpj} |  #{p.nome}  | #{tipo}  | #{p.endereco.cidade}/#{p.endereco.uf}"
+  end 
 when 2 
-  print "Informe o CPF/CNPJ: "
-  nome = gets.chomp
-  @data.add pessoa.new registro, nome
+
+  print "Informe o CPF/CNPJ:"
+registro = gets.chomp
+print "Informe o nome:"
+nome = gets.chomp
+
+print "Informe o CEP:"
+cep = gets.chomp
+
+print"Informe o logradouro:"
+logradouro = gets.chomp
+
+print"Informe o bairro:"
+bairro = gets.chomp
+
+print"Informe a cidade:"
+cidade = gets.chomp
+
+print"Informe o UF:"
+uf = gets.chomp
+
+endereco = Endereco.new cep, logradouro, bairro, cidade, uf
+
+@data.add Pessoa.new registro, nome, endereco
+
 when 0
   break
 else
