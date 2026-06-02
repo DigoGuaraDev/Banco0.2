@@ -1,6 +1,6 @@
 class conta 
 
-  attr_reader :numero, :titular, :aldo
+  attr_reader :numero, :titular, :saldo
 
   def initialize(numero, titular)
     @numero = numero
@@ -15,6 +15,15 @@ end
 def secar valor
   return @saldo -= valor if valor <= @saldo
   p "saldo insuficiente"
+end
+
+
+def to_h 
+  {
+  numero: @numero,
+  titular: @titular,
+  saldo: @saldo
+  }
 end
 
 def transferir destino, valor

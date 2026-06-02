@@ -10,4 +10,12 @@ class Endereco
     @uf = uf
   end
 
+def to_h
+  {
+    cep: @cep,
+    longradouro: @longradouro,
+    bairro: @bairro,
+    uf: @uf
+  }
+
 end  
